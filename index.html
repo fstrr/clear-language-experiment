@@ -51,6 +51,7 @@
 
       session.on('changeMode', () => {
         session.getMode().onRecalculateAllowed(editor, d => {
+          d = d.filter((item, index) => d.indexOf(item.toLowerCase()) === index);          
           erroneous.innerHTML = d.map(w => `<a>${w}</a>`).join('');
           erroneousWrapper.classList[d.length > 0 ? 'add' : 'remove']('invalid');
           editorElement.style.bottom = `${erroneous.clientHeight}px`;
