@@ -1,7 +1,7 @@
 {
   "name": "xkcd-simplewriter",
   "productName": "SimpleWriter",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "An Electron App of the XKCD Simple Writer",
   "license": "MIT",
   "repository": "tcyrus/xkcd-simplewriter",
@@ -27,7 +27,7 @@
   "homepage": "https://github.com/tcyrus/xkcd-simplewriter#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron-packager": "^5.0.0",
-    "electron-prebuilt": "^0.35.0"
+    "electron-packager": "^15.0.0",
+    "electron": "^10.1.5"
   }
 }
