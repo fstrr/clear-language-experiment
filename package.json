@@ -1,12 +1,17 @@
 {
   "name": "xkcd-simplewriter",
-  "productName": "SimpleWriter",
+  "productName": "SimpleWriter For Silver validation testing",
   "version": "0.1.0",
   "description": "An Electron App of the XKCD Simple Writer",
   "license": "MIT",
-  "repository": "tcyrus/xkcd-simplewriter",
+  "repository": "fstrr/xkcd-simplewriter",
   "main": "main.js",
   "author": "TCYRUS",
+  "contributors": [
+    {
+      "name": "Francis Storr"
+    }
+  ],
   "electronVersion": "0.35.0",
   "scripts": {
     "updateWords": "wget -qN https://xkcd.com/simplewriter/words.js",
@@ -22,9 +27,9 @@
     "writer"
   ],
   "bugs": {
-    "url": "https://github.com/tcyrus/xkcd-simplewriter/issues"
+    "url": "https://github.com/fstrr/xkcd-simplewriter/issues"
   },
-  "homepage": "https://github.com/tcyrus/xkcd-simplewriter#readme",
+  "homepage": "https://github.com/fstrr/xkcd-simplewriter#readme",
   "dependencies": {},
   "devDependencies": {
     "electron-packager": "^15.0.0",
