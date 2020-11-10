@@ -9,7 +9,12 @@ const Menu = electron.Menu;
 const MenuItem = electron.MenuItem;
 
 // Report crashes to our server.
-electron.crashReporter.start();
+electron.crashReporter.start({
+  productName: 'XKCD SimpleWriter for Silver validation testing',
+  companyName: 'W3C',
+  submitURL: 'http://localhost:30820',
+  compress: true
+});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
