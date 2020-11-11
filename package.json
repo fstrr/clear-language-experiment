@@ -14,7 +14,6 @@
   ],
   "electronVersion": "10.1.5",
   "scripts": {
-    "updateWords": "wget -qN https://xkcd.com/simplewriter/words.js",
     "start": "electron .",
     "build": "electron-packager . $npm_package_productName --out=dist --ignore='^/dist$' --prune --asar --all --version=$npm_package_electronVersion"
   },
