@@ -36,6 +36,41 @@
       // everyone wants Ctrl-L and Cmd-L to go to the address bar
       editor.commands.removeCommand('gotoline');
       editor.focus();
+      
+      /* remove keyboard trap from editor. Press the Escape key to get out of the editor */
+
+      function setCommandEnabled(editor, name, enabled) {
+        const command = editor.commands.byName[name]
+        if (!command.bindKeyOriginal) 
+          command.bindKeyOriginal = command.bindKey
+          command.bindKey = enabled ? command.bindKeyOriginal : null;
+          editor.commands.addCommand(command);
+          // special case for backspace and delete which will be called from
+          // textarea if not handled by main commandb binding
+          if (!enabled) {
+              var key = command.bindKeyOriginal;
+              if (key && typeof key == "object")
+                  key = key[editor.commands.platform];
+              if (/backspace|delete/i.test(key))
+                  editor.commands.bindKey(key, "null")
+          }
+      }      
+
+      editor.on('focus', function() {
+          setCommandEnabled(editor, "indent", true)
+          setCommandEnabled(editor, "outdent", true)
+        })
+
+        editor.commands.addCommand({
+          name: "escape",
+          bindKey: {win: "Esc", mac: "Esc"},
+          exec: function() {
+            setCommandEnabled(editor, "indent", false)
+            setCommandEnabled(editor, "outdent", false)
+          }
+        });
+
+        /* end remove keyboard trap handling */
 
       const editorElement = document.getElementById('editor');
       const erroneousWrapper = document.getElementById('erroneous-wrapper');
