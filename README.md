@@ -24,3 +24,4 @@ There are now three word lists:
 ## To do
 
 1. Add stemming to remove common suffixes.
+2. See if the less-simple word list can be made into an ordered list with keyboard-accessible links to the word in the Ace editor. Currently this click functionality only works with a mouse.
