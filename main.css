@@ -121,3 +121,9 @@ body {
     color: #fff;
     background: #c00;
 }
+
+.erroneous-word-list{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
