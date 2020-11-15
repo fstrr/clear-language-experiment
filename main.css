@@ -71,6 +71,9 @@ body {
 .ace_gutter {
     display: none;
 }
+.ace_scroller{
+    left:0 !important;
+}
 .ace_disallowed,
 .ace_disallowed + .ace_suffix {
     color: #c00;
@@ -126,4 +129,8 @@ body {
     list-style: none;
     margin:0;
     padding:0;
+}
+
+.erroneous-word-list li{
+    display:inline;
 }
