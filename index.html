@@ -14,13 +14,13 @@
       </h3>
     </div>
     <main id="editor-wrapper" class="xkcd-box">
-      <h2 class="xkcd-box-title">Put Words Here</h2>
+      <h2 class="xkcd-box-title">Put Words Here <span class="editor-word-count"></span></h2>
       <div id="editor"></div>
     </main>
     <div id="erroneous-wrapper">
       <div id="erroneous-mask"></div>
       <section id="erroneous-wrapper-inner" class="xkcd-box">
-        <h2 class="xkcd-box-title">You Used Some Less Simple Words</h2>
+        <h2 class="xkcd-box-title">You Used <span class="erroneous-word-count"></span></h2>
         <div id="erroneous"></div>
       </section>
     </div>
@@ -77,6 +77,8 @@
       const editorElement = document.getElementById('editor');
       const erroneousWrapper = document.getElementById('erroneous-wrapper');
       const erroneous = document.getElementById('erroneous');
+      const editorWordCount = document.querySelector('.editor-word-count');
+      const erroneousWordCount = document.querySelector('.erroneous-word-count');
 
       erroneous.addEventListener('click', e => {
         if (e.target.tagName.toLowerCase() === "a") {
@@ -88,8 +90,11 @@
 
       session.on('changeMode', () => {
         session.getMode().onRecalculateAllowed(editor, d => {
+          let el = editor.session.getValue().split(" ").length -1;
+          editorWordCount.textContent = `(${el} word${el===1 ? "" : "s"} entered so far)`;
           d = d.map(m => m.toLowerCase());
           d = d.filter((item, index) => d.indexOf(item) === index);
+          erroneousWordCount.textContent = `${d.length} Less Simple Word${d.length===1 ? "" : "s"}`;
           erroneous.innerHTML = `<ol class="erroneous-word-list">` + d.map(w => `<li><a href="#${w}">${w}</a></li>`).join('') + `</ol>`;
           erroneousWrapper.classList[d.length > 0 ? 'add' : 'remove']('invalid');
           editorElement.style.bottom = `${erroneous.clientHeight}px`;
