@@ -90,7 +90,7 @@
 
       session.on('changeMode', () => {
         session.getMode().onRecalculateAllowed(editor, d => {
-          let el = editor.session.getValue().split(" ").length -1;
+          let el = editor.session.getValue().trim().replace(/ +(?= )/g,'').split(" ").length;
           editorWordCount.textContent = `(${el} word${el===1 ? "" : "s"} entered so far)`;
           d = d.map(m => m.toLowerCase());
           d = d.filter((item, index) => d.indexOf(item) === index);
