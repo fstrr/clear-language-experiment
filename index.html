@@ -6,25 +6,17 @@
     <title>SimpleWriter</title>
   </head>
   <body>
-    <div id="masthead" class="xkcd-box">
-
-      <div style="display:flex;">
-        <h1 class="xkcd-box-titlemain">Simple Writer</h1>
-        <div style="display:flex; flex-direction:column;">
-          <h4 style="margin:0;padding:0;">Word Types</h4>
-          <select onchange="changeWordList(this)">
-            <option value="XKCD_3634">XKCD 3634</option>
-            <option value="GOOGLE_3000">Google 3000</option>
-            <option value="GOOGLE_5000">Google 5000</option>
-          </select>
-        </div>
-
+    <header class="banner xkcd-box">
+      <h1 class="app-title">Simple Writer</h1>
+      <div>
+        <label class="u-block word-list-changer" for="word-lists">Change Word List</label>
+        <select class="word-lists" id="word-lists" onchange="changeWordList(this)">
+          <option value="XKCD_3634">XKCD list (3634 words)</option>
+          <option value="GOOGLE_3000">Google list (3000 words)</option>
+          <option value="GOOGLE_5000">Google list (3000 words)</option>
+        </select>
       </div>
-
-      <h3 class="xkcd-box-title">
-        Write Like <a href="http://xkcd.com/1133/index.html">Up Goer Five</a> and <a href="http://blog.xkcd.com/2015/05/13/new-book-thing-explainer/">Thing Explainer</a>
-      </h3>
-    </div>
+    </header>
     <main id="editor-wrapper" class="xkcd-box">
       <h2 class="xkcd-box-title"><label for="text-input">Put Words Here</label> <span class="editor-word-count"></span></h2>
       <div id="editor"></div>
@@ -69,9 +61,6 @@
         editor.setValue("");
         editor.setValue(lastValue);
       }
-
-
-
 
       /* remove keyboard trap from editor. Press the Escape key to get out of the editor */
 
