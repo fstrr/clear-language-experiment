@@ -61,8 +61,8 @@
       initEditor();
       
       function changeWordList(obj){
-        console.log(obj.value);
-        console.log(`__WORDS_${obj.value}`);
+        // console.log(obj.value);
+        // console.log(`__WORDS_${obj.value}`);
         window.__WORDS = window[`__WORDS_${obj.value}`];
         initEditor();
         const lastValue = editor.getValue();
