@@ -26,7 +26,7 @@
       </h3>
     </div>
     <main id="editor-wrapper" class="xkcd-box">
-      <h2 class="xkcd-box-title">Put Words Here <span class="editor-word-count"></span></h2>
+      <h2 class="xkcd-box-title"><label for="text-input">Put Words Here</label> <span class="editor-word-count"></span></h2>
       <div id="editor"></div>
     </main>
     <div id="erroneous-wrapper">
@@ -113,6 +113,9 @@
       const erroneous = document.getElementById('erroneous');
       const editorWordCount = document.querySelector('.editor-word-count');
       const erroneousWordCount = document.querySelector('.erroneous-word-count');
+      setTimeout(() => {
+        document.querySelector(".ace_text-input").setAttribute("id", "text-input");
+      }, 500);
 
       erroneous.addEventListener('click', e => {
         if (e.target.tagName.toLowerCase() === "a") {
