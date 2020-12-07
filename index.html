@@ -13,18 +13,18 @@
         <select class="word-lists" id="word-lists" onchange="changeWordList(this)">
           <option value="XKCD_3634">XKCD list (3634 words)</option>
           <option value="GOOGLE_3000">Google list (3000 words)</option>
-          <option value="GOOGLE_5000">Google list (3000 words)</option>
+          <option value="GOOGLE_5000">Google list (5000 words)</option>
         </select>
       </div>
     </header>
     <main id="editor-wrapper" class="xkcd-box">
-      <h2 class="xkcd-box-title"><label for="text-input">Put Words Here</label> <span class="editor-word-count"></span></h2>
+      <h2 class="xkcd-box-title"><label for="text-input">Enter Words Here</label> <span class="editor-word-count"></span></h2>
       <div id="editor"></div>
     </main>
     <div id="erroneous-wrapper">
       <div id="erroneous-mask"></div>
-      <section id="erroneous-wrapper-inner" class="xkcd-box">
-        <h2 class="xkcd-box-title">You Used <span class="erroneous-word-count"></span></h2>
+      <section aria-labelledby="less-simple-header" id="erroneous-wrapper-inner" class="xkcd-box">
+        <h2 class="xkcd-box-title"><span id="less-simple-header">Less Simple Words</span> <span class="erroneous-word-count"></span></h2>
         <div id="erroneous"></div>
       </section>
     </div>
@@ -120,7 +120,7 @@
           editorWordCount.textContent = `(${el} word${el===1 ? "" : "s"} entered so far)`;
           d = d.map(m => m.toLowerCase());
           d = d.filter((item, index) => d.indexOf(item) === index);
-          erroneousWordCount.textContent = `${d.length} Less Simple Word${d.length===1 ? "" : "s"}`;
+          erroneousWordCount.textContent = `(${d.length} word${d.length===1 ? "" : "s"})`;
           erroneous.innerHTML = `<ol class="erroneous-word-list">` + d.map(w => `<li><a href="#${w}">${w}</a></li>`).join('') + `</ol>`;
           erroneousWrapper.classList[d.length > 0 ? 'add' : 'remove']('invalid');
           editorElement.style.bottom = `${erroneous.clientHeight}px`;
