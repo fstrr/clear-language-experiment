@@ -7,7 +7,8 @@
   </head>
   <body>
     <header class="banner xkcd-box">
-      <h1 class="app-title">Simple Writer</h1>
+      <img alt="W3C Silver Accessibility logo" src="ag.png">
+      <h1 class="app-title">Silver Writer</h1>
       <div>
         <label class="u-block word-list-changer" for="word-lists">Change Word List</label>
         <select class="word-lists" id="word-lists" onchange="changeWordList(this)">
@@ -118,6 +119,7 @@
         session.getMode().onRecalculateAllowed(editor, d => {
           let el = editor.session.getValue().trim().replace(/ +(?= )/g,'').split(" ").length;
           editorWordCount.textContent = `(${el} word${el===1 ? "" : "s"} entered so far)`;
+          // d = d.map(m=> m ? natural.PorterStemmer.stem(`${m}`) : m);
           d = d.map(m => m.toLowerCase());
           d = d.filter((item, index) => d.indexOf(item) === index);
           erroneousWordCount.textContent = `(${d.length} word${d.length===1 ? "" : "s"})`;
@@ -129,6 +131,7 @@
     </script>
     <script>
       'use strict';
+      // const natural = require('natural');
       const electron = require('electron');
       const ipcRenderer = electron.ipcRenderer;
 
